@@ -242,6 +242,8 @@ An explicit numerical value always sets the timer to that many seconds.
 * added the following `GL` constants for use in `gl.BlendEquation`: `FUNC_ADD`, `FUNC_SUBTRACT`, `FUNC_REVERSE_SUBTRACT`, `MIN` and `MAX`.
 * added `Spring.GetWindowDisplayMode() → number width, number height, number bitsPerPixel, number refreshRateHz, string pixelFormatName`.
 The pixel format name is something like, for example, "SDL_PIXELFORMAT_RGB565".
+* added `Spring.ForceUnitCollisionUpdate(unitID) → nil`. Forces a quadfield position update, which guarantees that hitscan weapons can hit the unit on that frame
+even if the `movement.unitQuadPositionUpdateRate` modrule is set to above 1 (which it is by default). Otherwise there are rare edge cases where they will ghost through.
 
 ### Weapon fixes
 * fix `Cannon` type weapons aiming at the (0, 0) corner of the world if they can't find a physical firing solution due to target leading

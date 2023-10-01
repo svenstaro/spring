@@ -92,9 +92,9 @@ void AMoveType::SlowUpdate()
 	}
 }
 
-void AMoveType::UpdateCollisionMap()
+void AMoveType::UpdateCollisionMap(bool force)
 {
-	if ((gs->frameNum + owner->id) % modInfo.unitQuadPositionUpdateRate)
+	if (!force && ((gs->frameNum + owner->id) % modInfo.unitQuadPositionUpdateRate))
 		return;
 
 	if (owner->pos != oldCollisionUpdatePos){
